@@ -1,0 +1,35 @@
+﻿@model IEnumerable<System.Diagnostics.Process>;
+@{
+    ViewData["Title"] = "Bot";
+}
+
+<div id="bot_page">
+    <form class="form-group" action="/Bot/RunBot" method="post">
+        <input action="/Bot/RunBot" type="submit" value="Run Bot Server" class="btn btn-success" />
+    </form>
+    <form class="form-group" action="/Bot/KillBot" method="post">
+        <input action="/Bot/KillBot" type="submit" value="Kill Bot Server" class="btn btn-danger" />
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Process Id</th>
+                <th scope="col">Process Name</th>
+                <th scope="col">Kill</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.ProcessName</td>
+                        <td><a href="~/Bot/KillForId/@item.Id">Kill</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

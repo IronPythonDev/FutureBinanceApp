@@ -1,0 +1,21 @@
+﻿@model FutureBinanceApp.Domain.Entities.AccountModel
+@{
+}
+
+<div>
+    <form class="form-custom form-group" action="/Account/Update" method="post">
+        <div class="form-group">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <label>Id: @Model.Id</label>
+        </div>
+        <div class="form-group">
+            <label>API Key</label>
+            <input class="form-control" type="text" value="@Model.APIKey" placeholder="@Model.APIKey" name="APIKey" />
+        </div>
+        <div class="form-group">
+            <label>API Secret Key</label>
+            <input class="form-control" type="text" value="@Model.APISecret" placeholder="@Model.APISecret" name="APISecret" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Сохранить" />
+    </form>
+</div>

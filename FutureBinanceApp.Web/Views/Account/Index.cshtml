@@ -1,0 +1,57 @@
+﻿@model List<FutureBinanceApp.Domain.Entities.AccountModel>
+@{
+    ViewData["Title"] = "Account";
+}
+<div>
+    <h3>Форма добавления нового счета в систему</h3>
+    <p>Для добавления нового счета в систему заполните следующие поля:</p>
+    <form class="form-custom form-group" method="post" action="/Account/Add">
+        <div class="form-group">
+            <label>API Key</label>
+            <input class="form-control" type="text" name="APIKey" />
+        </div>
+        <div class="form-group">
+            <label>API Secret Key</label>
+            <input class="form-control API_SECRET_KEY" type="text" name="APISecret" id="API_SECRET_KEY" />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Сохранить"/>
+    </form>
+</div>
+
+<div>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <td>Id</td>
+                <td>API KEY</td>
+                <td>API SECRET KEY</td>
+                <td>Remove</td>
+                <td>Update</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.APIKey</td>
+                <td>@item.APISecret</td>
+                <td><a href="~/Account/Remove/@item.Id">Remove</a></td>
+                <td><a href="~/Account/Update/@item.Id">Update</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    let el = $(".API_SECRET_KEY").val();
+</script>
+
+<style>
+    .form-custom {
+        width: 1100px;
+    }
+</style>

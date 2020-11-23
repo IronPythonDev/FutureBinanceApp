@@ -1,0 +1,31 @@
+﻿Создание первой миграции. В Visual Studio открыть консоль Tools -> NuGet Package Manager -> Package Manager Console и ввести команду:
+dotnet ef migrations add InitialApp --startup-project "FutureBinanceApp.Web/FutureBinanceApp.Web.csproj" --project "FutureBinanceApp.Infrastructure.Data/FutureBinanceApp.Infrastructure.Data.csproj" --context "FutureBinanceApp.Infrastructure.Data.Contexts.AccountContext"
+
+========================================================
+Результат работы AccountContext:
+========================================================
+PM> dotnet ef migrations add InitialApp --startup-project "FutureBinanceApp.Web/FutureBinanceApp.Web.csproj" --project "FutureBinanceApp.Infrastructure.Data/FutureBinanceApp.Infrastructure.Data.csproj" --context "FutureBinanceApp.Infrastructure.Data.Contexts.AccountContext"
+Build started...
+Build succeeded.
+The EF Core tools version '3.1.5' is older than that of the runtime '3.1.10'. Update the tools for the latest features and bug fixes.
+Done. To undo this action, use 'ef migrations remove'
+PM> 
+========================================================
+Появилась миграция 20201121181204_InitialApp
+========================================================
+
+
+
+========================================================
+Результат работы LogContext:
+========================================================
+
+PM> dotnet ef migrations add InitialLogs --startup-project "FutureBinanceApp.Web/FutureBinanceApp.Web.csproj" --project "FutureBinanceApp.Infrastructure.Data/FutureBinanceApp.Infrastructure.Data.csproj" --context "FutureBinanceApp.Infrastructure.Data.Contexts.LogContext"
+Build started...
+Build succeeded.
+The EF Core tools version '3.1.5' is older than that of the runtime '3.1.10'. Update the tools for the latest features and bug fixes.
+Done. To undo this action, use 'ef migrations remove'
+PM> 
+========================================================
+Появилась миграция 20201121190626_InitialLogs
+========================================================
